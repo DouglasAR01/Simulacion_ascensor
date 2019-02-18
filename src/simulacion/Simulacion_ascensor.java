@@ -31,16 +31,19 @@ public class Simulacion_ascensor {
             0.0391,0.0332,0.0293 //21:00 a 23:00
         };
         for (int hora = 0; hora<24;hora++){
-            for(int minuto = 0; minuto<60; minuto++){
+            for(int segundo = 0; segundo<3600; segundo+=15){ //Se hace la suposición de que cada 15 segs se sube un piso
+                //Aquí se avanza 
                 for(int intento = 0; intento<intentos;intento++){
                     //Ingreso de persona
                     if(random.nextDouble()<=distribucion[hora]){
                         Persona persona = new Persona(random.nextInt(pisos),1); //Arrreglar lo del peso
-                        
+                        if(!ascensor.agregarPersona(persona)){
+                            break;
+                        }
                     }
                 }
             }
         }
     }
-    
+
 }
