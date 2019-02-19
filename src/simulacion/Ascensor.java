@@ -9,13 +9,13 @@ package simulacion;
  *
  * @author Usuario
  */
+import java.util.ArrayList;
 public class Ascensor {
 
     private final int pisos;
     private final int cantidadMaximaPersonas;
     private final int pesoMaximo;
-    private Persona[] personas; //Tiene que ser un arraylist
-    private int personasMontadas;
+    private ArrayList<Persona> personas; //Tiene que ser un arraylist
     private double pesoActual;
     private boolean subiendo;
     private int pisoActual;
@@ -24,10 +24,9 @@ public class Ascensor {
         this.pisos = pisos;
         this.cantidadMaximaPersonas = cantMPersonas;
         this.pesoMaximo = pesoMax;
-        this.personas = new Persona[cantidadMaximaPersonas];
         this.subiendo = true;
         this.pisoActual = 0;
-        this.personasMontadas = 0;
+        this.personas = new ArrayList();
     }
 
     public int getPisos() {
@@ -42,19 +41,12 @@ public class Ascensor {
         return pesoMaximo;
     }
 
-    public Persona[] getPersonas() {
-        return personas;
-    }
-
     public boolean agregarPersona(Persona persona){
-        if (personasMontadas<cantidadMaximaPersonas) {
-            personasMontadas+=1;
-            //ARREGLAR
+        if(personas.size()<cantidadMaximaPersonas){
+            personas.add(persona);
+            return true;
         }
-    }
-
-    public void eliminarPersona(){
-
+        return false;
     }
 
     public double getPesoActual() {
@@ -74,14 +66,28 @@ public class Ascensor {
     }
 
     public boolean getSubiendo() {
-        return pesoActual;
+        return subiendo;
     }
 
     public void setSubiendo(boolean subiendo) {
         this.subiendo = subiendo;
     }
+    
+    public int bajarPasajeros(){
+        if(personas.size()>0){
+            int contador = 0;
+            for (int i = 0; i<personas.size(); i++){
+                if(personas.get(i).getPisoDestino()==pisoActual){
+                    contador++;
+                    personas.remove(i);
+                }
+            }
+            return contador;
+        }
+        return 0;
+    }
 
-    public void avanzar(){
+    public int avanzar(){
         if (pisoActual<pisos && subiendo==true){
           pisoActual+=1;
         }else{
@@ -92,6 +98,6 @@ public class Ascensor {
             subiendo = true;
           }
         }
-        this.bajarPasajeros();
+        return this.bajarPasajeros();
     }
 }
