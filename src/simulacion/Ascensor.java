@@ -80,6 +80,7 @@ public class Ascensor {
             for (int i = 0; i<personas.size(); i++){
                 if(personas.get(i).getPisoDestino()==pisoActual){
                     contador++;
+                    pesoActual-=personas.get(i).getPeso();
                     personas.remove(i);
                 }
             }
