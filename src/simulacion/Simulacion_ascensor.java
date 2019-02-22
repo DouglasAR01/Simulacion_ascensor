@@ -39,10 +39,6 @@ public class Simulacion_ascensor {
                     }
                 }
             }
-        }
-        
-        //Mostrar resultados
-        for (int i = 0; i<24; i++){
             System.out.println("Personas que abordaron y salieron del ascensor, respectivamente, a las "+i+
                     " ["+registroAbordos[i]+", "+registroSalidas[i]+"]");
         }
