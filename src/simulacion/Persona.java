@@ -17,6 +17,9 @@ public class Persona {
     public Persona(int pisoDestino, double peso) {
         this.pisoDestino = pisoDestino;
         this.peso = peso*pesoPromedioRegion;
+        if (this.peso<0){
+            this.peso*=-1;
+        }
     }
 
     public int getPisoDestino() {
