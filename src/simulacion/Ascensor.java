@@ -42,8 +42,9 @@ public class Ascensor {
     }
 
     public boolean agregarPersona(Persona persona){
-        if(personas.size()<cantidadMaximaPersonas){
+        if(personas.size()<cantidadMaximaPersonas && (pesoActual+persona.getPeso())<=pesoMaximo){
             personas.add(persona);
+            pesoActual+=persona.getPeso();
             return true;
         }
         return false;
