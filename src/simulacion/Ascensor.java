@@ -49,6 +49,10 @@ public class Ascensor {
         }
         return false;
     }
+    
+    public int getPersonasAbordo(){
+        return personas.size();
+    }
 
     public double getPesoActual() {
         return pesoActual;

@@ -3,3 +3,7 @@ nbproject/private/private.properties
 nbproject/private/private.xml
 nbproject/private/private.properties
 /build/
+/nbproject
+nbproject/private/private.properties
+nbproject/genfiles.properties
+nbproject/build-impl.xml
