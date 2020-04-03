@@ -27,7 +27,7 @@ public class Simulacion_ascensor {
          * 4. Centro comercial grande: 20 a 30.
          * Más de 30 no sería muy realista.
          */        
-        int escala = 20;
+        int escala = 25;
         int pisos = 5;
         int cantidadMaximaPersonas = 10;
         int pesoMaximo = 500; //En KG
